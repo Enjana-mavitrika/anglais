@@ -39,25 +39,20 @@ evaluations**.
 ### 2.1 GAUSSIAN PROCESS
 
 The **Gaussian Process** is a **convenient and powerful** prior distribution on functions which we
-will take here to be the form __f : X -> R__. (explain how GP work) with GP any finite set of __N__
-induces a multivariate Gaussian distribution on R. The n-th of these points is considered as the
-value of f(Xn), and the elegant marginalization properties of the Gaussian distribution allow us
-to compute marginals and conditionals in closed form. The support and properties of the resulting
-distribution on functions are determined by a mean function __m : X -> R__ and a positive definite
-covariance function __K : X x X -> R__. ( Le processus gaussien (GP) est une distribution a priori pratique et puissante sur les fonctions, que nous prendrons ici pour être de la forme f: X → R. Le nième de ces points est considéré comme la valeur de la fonction f (x n), et les élégantes propriétés de marginalisation du Gaussien nous permet de calculer des marginaux et des conditionnels sous forme fermée. Le support et les propriétés de la distribution résultante sur les fonctions sont déterminés par une fonction moyenne m: X → R et une fonction de covariance définie positive K: X × X → R. )
+will take here to be the form _f : X -> R_. (explain how GP work [lien video youtube](https://www.youtube.com/watch?v=vU6AiEYED9E&t=539s)) ( Le processus gaussien (GP) est une distribution a priori pratique et puissante sur les fonctions, que nous prendrons ici pour être de la forme f: X → R).
 
 
 ### 2.2 ACQUISITION FUNCTIONS FOR BAYESIAN OPTIMIZATION
 
 We assume that the **function f(x)** is **drawn** from a **Gausssian process prior** and that **our
-observations are of the form {Xn, Yn} n = (1,N)**. Where Yn ~ N(f(Xn),v) and **v** is the **variance
+observations are of the form {Xn, Yn} n = [1,N]**. Where Yn ~ N(f(Xn),v) and **v** is the **variance
 of noise introduced into the function observations**. This prior and this data induce a posterior
-over functions. **The acquisiion function** which e denote by **a : X -> R+ determines** what 
+over functions. **The acquisition function** which we denote by **a : X -> R+ determines** what 
 **point in X** should be **evaluated next** via a proxy optimization **Xnext = argmax_x a(X)**, where 
 several **different functions** have been **proposed**. In general, these **acquisition functions
 depend** on the **previous observations** as well as the **GP hyperparameters**; we denote this
 dependence as **a(X; {Xn,Yn}, θ)**. there are several popular choices of acquisition function.
-**Under the Gaussian process prior**, thes functions **depend** on the model solely through its
+**Under the Gaussian process prior**, these functions **depend** on the model solely through its
 **predictive mean function μ(X ; {Xn , Yn }, θ)** and **predictive variance function 
 σ 2 (X ; {Xn , Yn }, θ)**. In the proceeding, we will **denote the best current value** as 
 **Xbest = argmin_Xn f(Xn)** and the **cumulative distribution function of the standard normal as
