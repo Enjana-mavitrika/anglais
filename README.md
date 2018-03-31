@@ -57,6 +57,15 @@ dependence as **a(X; {Xn,Yn}, θ)**. there are several popular choices of acquis
 σ 2 (X ; {Xn , Yn }, θ)**. In the proceeding, we will **denote the best current value** as 
 **Xbest = argmin_Xn f(Xn)** and the **cumulative distribution function of the standard normal as
 Φ(·)**.
+
+#### ROLE ? 
+=> **Generate a utility function** from previous model **to find the next point to evaluate**.
+
+#### HOW IT WORKS ?
+1. We suppose that **the function f(x)** is drawn from a **Gaussian process prior**. 
+=> So as we seen previously, the results are of the form {X_1...X_n, Y_1...Y_n}
+with Yn ~ N(f(Xn),v).
+
 #### Probability of Improvement
 =>  **maximize the probability of improving over the best current value**
 Under GP this can be computed analytically as : 
