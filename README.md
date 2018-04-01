@@ -102,12 +102,28 @@ Under GP this can be computed analytically as :
 + As we 've seen previously in section 2, Bayesian Optimization with GP is an elegant and effective 
 framework for optimizing expensive functions , but have limitations when it comes to optimizing
 hyperparameters in machine learning problems.
+
 ## WHY ?
 - 1. Its unclear (difficult) how to choose the **convariance function and its associated hyperparameters**.
 - 2. As the function evaluation itself may involve a time-consuming optimization procedure. Durations of problems 
 can vary and must be taken in account.
+- 3. It doesn't take advantage of multi-core parallelism to adapt well in modern computationnal environments.
+
+## WHAT ?
+> **Citation authors** : In this section, we propose solutions to each of these issues.
+
 ## 3 PRACTICAL CONSIDERATIONS FOR BAYESIAN OPTIMIZATION OF HYPERPARAMETERS
 
+### 3.1 Covariance Functions and Treatment of Covariance Hyperparameters
 
+#### PROBLEM ?
+=> The power of GP to express a rich distribution on functions depends essentially on the covariance functions.
+  And in particular the **Automatic Relevance Determination (ARD)** _squared exponential kernel_ we denote by K_SE(X,X')
+  (4) # polycop is often a default choice for GP regression but sample function that we obtain from this covariance function are
+  unrealistic for practical optimization problem.
   
+#### SOLUTION ?
+=> They propose to use the ARD _Matérn 5/2 kernel_ (5) # polycop
+
+=> With this covariance function we can obtain **twice_differentiable sample functions**.
   
