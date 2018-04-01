@@ -44,41 +44,45 @@ will take here to be the form _f : X -> R_. (explain how GP work [lien video you
 
 ### 2.2 ACQUISITION FUNCTIONS FOR BAYESIAN OPTIMIZATION
 
-We assume that the **function f(x)** is **drawn** from a **Gausssian process prior** and that **our
-observations are of the form {Xn, Yn} n = [1,N]**. Where Yn ~ N(f(Xn),v) and **v** is the **variance
-of noise introduced into the function observations**. This prior and this data induce a posterior
-over functions. **The acquisition function** which we denote by **a : X -> R+ determines** what 
-**point in X** should be **evaluated next** via a proxy optimization **Xnext = argmax_x a(X)**, where 
-several **different functions** have been **proposed**. In general, these **acquisition functions
-depend** on the **previous observations** as well as the **GP hyperparameters**; we denote this
-dependence as **a(X; {Xn,Yn}, θ)**. there are several popular choices of acquisition function.
-**Under the Gaussian process prior**, these functions **depend** on the model solely through its
-**predictive mean function μ(X ; {Xn , Yn }, θ)** and **predictive variance function 
-σ 2 (X ; {Xn , Yn }, θ)**. In the proceeding, we will **denote the best current value** as 
-**Xbest = argmin_Xn f(Xn)** and the **cumulative distribution function of the standard normal as
-Φ(·)**.
-
 #### ROLE ? 
 => **Generate a utility function** from previous model **to find the next point to evaluate**.
 
 #### HOW IT WORKS ?
-1. We suppose that **the function f(x)** is drawn from a **Gaussian process prior**. 
-=> So as we seen previously, the results are of the form {X_1...X_n, Y_1...Y_n}
-with Yn ~ N(f(Xn),v).
+1. We denote the acquisition function by : **a : X -> R+**
+2. We suppose that **the function f(x)** is drawn from a **Gaussian process prior**. 
+=> So as we seen previously, the results are of the form {X_1...X_n, Y_1...Y_n} that we will denote 
+by **{Xn , Yn}** with Yn ~ N(f(Xn),v).
+3. Several different function will be proposed.
+4. In general these acquisition functions depend on **previous observations and GP hyperparameters** 
+( we denote this dependence as **a(X; {Xn,Yn}, θ)** ).
+5. These function depend only on the model through its **predictive mean function  μ (X; {Xn, Yn}, θ)** and 
+**predictive variance function σ 2 (X ; {Xn , Yn}, θ)**.
+6. We will denote the best current value as **Xbest = argmin_Xn f(Xn)**.
+7. We will denote the **cumulative distribution function of the standard normal** as **Φ(·)**.
+8. Determine what point in X should be evaluated next via a proxy optimization  **Xnext = argmax_x a(X)**.
 
-#### Probability of Improvement
+#### 3 DIFFERENT STRATEGIES TO FIND ACQUISITION FUNCTIONS 
+
+#### STRATEGY 1 : Probability of Improvement
+##### PRINCIPLE ?
 =>  **maximize the probability of improving over the best current value**
+##### HOW ?
 Under GP this can be computed analytically as : 
   (1) # polycop
   
-#### Expected Improvement
+#### STRATEGY 2 : Expected Improvement
+##### PRINCIPLE ?
 => **maximize the expected probability of improving over the best current value**.
+##### HOW ?
 Under GP this can be computed analytically as : 
   (2) # polycop
   
-#### GP Upper Confidence Bound
+#### STRATEGY 3 : GP Upper Confidence Bound
+##### PRINCIPLE ?
 => (more recent one) **construct acquisition functions that minimize regret over the course of 
 their optimization.**
+##### HOW ?
+Under GP this can be computed analytically as : 
   (3) # polycop
   
 #### IN THIS WORK ?
