@@ -95,5 +95,19 @@ Under GP this can be computed analytically as :
 
 
 
+
+# SECTION 3 ARTICLE : _Practical bayesian optimization of machine learning algorithms_
+
+## LIMITATIONS
++ As we 've seen previously in section 2, Bayesian Optimization with GP is an elegant and effective 
+framework for optimizing expensive functions , but have limitations when it comes to optimizing
+hyperparameters in machine learning problems.
+## WHY ?
+- 1. Its unclear (difficult) how to choose the **convariance function and its associated hyperparameters**.
+- 2. As the function evaluation itself may involve a time-consuming optimization procedure. Durations of problems 
+can vary and must be taken in account.
+## 3 PRACTICAL CONSIDERATIONS FOR BAYESIAN OPTIMIZATION OF HYPERPARAMETERS
+
+
   
   
