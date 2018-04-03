@@ -149,7 +149,10 @@ the integrated acquisition function**
    + It takes in consideration the uncertainty for hyperparameters for EI and probability of improvement.
    + It's possible to have a Monte Carlo estimate of the integrated EI. [What is Monte Carlo ?](https://www.youtube.com/watch?v=AyBNnkYrSWY)
    + It's computationally dominated by the cubic cost of solving an N-dimensional linear system (cubic complexity).
-
+   
+ 
+ ###### Figure 1 : 
+ => Shows how the integrated EI changes the acquisition function. # polycop
 
 
 ### 3.2 Modeling Costs ( solve LIMITATION (2) )
@@ -196,8 +199,16 @@ repeat one of the pending experiments.
 #### Solution ?
 => They propose a sequential strategy that use GP to compute Monte Carlo estimates of the acquisition function
 under different possible results from pending function evaluations
+  ##### how ?
+  => They choose a new point based on the expected acquisition function under all possible outcomes of pending evalueations :
+  mathematically => (7) # polycop => that simply the expectation of a(x) under a J-dimensionnal GP distribution.
+  
+  ##### To see how this procedure would operate with queued evaluations
+  => see Figure 2 # polycop
 
-
+#### Conclusion ?
+=> They have found that their Monte Carlo estimation procedure is highly effective in practice and they 
+prove that in the next Section.
 
 
 
