@@ -114,7 +114,8 @@ can vary and must be taken in account.
 
 ## 3 PRACTICAL CONSIDERATIONS FOR BAYESIAN OPTIMIZATION OF HYPERPARAMETERS
 
-### 3.1 Covariance Functions and Treatment of Covariance Hyperparameters ( Solve LIMITATION 1)
+
+### 3.1 Covariance Functions and Treatment of Covariance Hyperparameters ( Solve LIMITATION (1) )
 
 #### PROBLEM ?
 => The power of GP to express a rich distribution on functions depends essentially on the covariance functions.
@@ -143,15 +144,15 @@ Method )
 the integrated acquisition function**
  How it look like (6) # polycop
  
- +Advantages :
+ ###### Advantages :
  
-   -It takes in consideration the uncertainty for hyperparameters for EI and probability of improvement.
-   -It's possible to have a Monte Carlo estimate of the integrated EI. [What is Monte Carlo ?](https://www.youtube.com/watch?v=AyBNnkYrSWY)
-   -It's computationally dominated by the cubic cost of solving an N-dimensional linear system (cubic complexity).
+   + It takes in consideration the uncertainty for hyperparameters for EI and probability of improvement.
+   + It's possible to have a Monte Carlo estimate of the integrated EI. [What is Monte Carlo ?](https://www.youtube.com/watch?v=AyBNnkYrSWY)
+   + It's computationally dominated by the cubic cost of solving an N-dimensional linear system (cubic complexity).
 
 
 
-### 3.2 Modeling Costs ( solve LIMITATION 2 )
+### 3.2 Modeling Costs ( solve LIMITATION (2) )
 
   
 #### Ultimate Target :
@@ -175,6 +176,34 @@ Acquire points that are not only likely to be good but are also likely to be eva
 => Use unknown objective function **f(x)** and unknown duration **c(x)** then **model ln c(x) alongside f(x)**
 with GP machinery, then by assuming that these function are independant we can **easily compute the predicted
 expected inverse duration** then use it to **compute the EI per second**.
+
+
+
+### 3.3 Monte Carlo Acquisition for Parallelizing Bayesian Optimization ( Solve LIMITATION (3) )
+
+
+#### Target ?
+=> **Take advantage of multi-core computing and parallelize Bayesian optimization procedures**.
+In brief, should be able to decide what X should be evaluated next, while a set of points are being evaluated.
+
+
+#### Problem ?
+=> Now that they parallelize their bayesian optimization, they're confronted to another problem because
+logically they have to find a way to avoid using the same acquisition function, otherwise they will 
+repeat one of the pending experiments.
+
+
+#### Solution ?
+=>
+
+
+
+
+
+
+
+
+
 
 
 
