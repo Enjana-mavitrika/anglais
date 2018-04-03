@@ -194,7 +194,8 @@ repeat one of the pending experiments.
 
 
 #### Solution ?
-=>
+=> They propose a sequential strategy that use GP to compute Monte Carlo estimates of the acquisition function
+under different possible results from pending function evaluations
 
 
 
