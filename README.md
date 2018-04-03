@@ -114,7 +114,7 @@ can vary and must be taken in account.
 
 ## 3 PRACTICAL CONSIDERATIONS FOR BAYESIAN OPTIMIZATION OF HYPERPARAMETERS
 
-### 3.1 Covariance Functions and Treatment of Covariance Hyperparameters
+### 3.1 Covariance Functions and Treatment of Covariance Hyperparameters ( Solve LIMITATION 1)
 
 #### PROBLEM ?
 => The power of GP to express a rich distribution on functions depends essentially on the covariance functions.
@@ -123,7 +123,25 @@ can vary and must be taken in account.
   unrealistic for practical optimization problem.
   
 #### SOLUTION ?
-=> They propose to use the ARD _Matérn 5/2 kernel_ (5) # polycop
 
-=> With this covariance function we can obtain **twice_differentiable sample functions**.
+##### Choose the form of the covariance function :
+=> They propose to use the ARD _Matérn 5/2 kernel_ 
+ How it look like (5) # polycop
+
+=> With this covariance function we can obtain **twice_differentiable sample functions**.( result correspond to quasi-newton
+Method )
+
+##### Manage the hyperparameters that control the covariance function ( != hyperparameters being optimized ) :
+
+=> They propose to use D + 3 Gaussian process hyperparameters that is more appropriate for the problem.
+ How it look like # polycop
+ 
+
+
+
+
+
+
+
+
   
