@@ -137,11 +137,50 @@ Method )
  How it look like # polycop
  
 
+##### Result :
+
+=> For fully-Bayesian treatment of hyperparameters, they propose **to marginalize over hyperparameters and compute
+the integrated acquisition function**
+ How it look like (6) # polycop
+ 
+ ###### Advantages :
+ 
++It takes in consideration the uncertainty for hyperparameters for EI and probability of improvement.
++It's possible to have a Monte Carlo estimate of the integrated EI. [What is Monte Carlo ?](https://www.youtube.com/watch?v=AyBNnkYrSWY)
++It's computationally dominated by the cubic cost of solving an N-dimensional linear system (cubic complexity).
 
 
 
-
-
-
+### 3.2 Modeling Costs ( solve LIMITATION 2 )
 
   
+#### Ultimate Target :
+=> **find a good setting of our hyperparameters as quickly as possible**.
+
+
+#### Problem ?
+=> Acquisition procedures as EI try to make the best progress possible in the next function evaluation but
+don't consider the progress in term of **execution time** which is very important in practical point of view.
+
+
+#### Solution ?
+To improve performance in terms of wallclock time => They propose **optimizing with the EI per second**.
+
+
+#### Principle ?
+Acquire points that are not only likely to be good but are also likely to be evaluated quickly.
+
+
+#### How ?
+=> Use unknown objective function **f(x)** and unknown duration **c(x)** then **model ln c(x) alongside f(x)**
+with GP machinery, then by assuming that these function are independant we can **easily compute the predicted
+expected inverse duration** then use it to **compute the EI per second**.
+
+
+
+
+
+
+
+
+
