@@ -143,11 +143,11 @@ Method )
 the integrated acquisition function**
  How it look like (6) # polycop
  
- + Advantages :
+ +Advantages :
  
- - It takes in consideration the uncertainty for hyperparameters for EI and probability of improvement.
- - It's possible to have a Monte Carlo estimate of the integrated EI. [What is Monte Carlo ?](https://www.youtube.com/watch?v=AyBNnkYrSWY)
- - It's computationally dominated by the cubic cost of solving an N-dimensional linear system (cubic complexity).
+   -It takes in consideration the uncertainty for hyperparameters for EI and probability of improvement.
+   -It's possible to have a Monte Carlo estimate of the integrated EI. [What is Monte Carlo ?](https://www.youtube.com/watch?v=AyBNnkYrSWY)
+   -It's computationally dominated by the cubic cost of solving an N-dimensional linear system (cubic complexity).
 
 
 
